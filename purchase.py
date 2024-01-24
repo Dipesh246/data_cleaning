@@ -65,8 +65,8 @@ def extract_data(data_file):
     # print(grouped_data.head())
     columns_to_drop = ['SUPPLIER_NAME','SUPPLIER_PAN',]
     detail_excel_data = excel_data.drop(columns=columns_to_drop, axis=1)
-    data = {"grouped_data":grouped_data,
-            "detail_data":detail_excel_data,}
+    data = {"grouped_data":grouped_data.to_dict(orient='records'),
+            "detail_data":detail_excel_data.to_dict(orient='records'),}
     
     return data
 
